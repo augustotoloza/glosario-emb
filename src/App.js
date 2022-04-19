@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { dataGlosario } from "./dataGlosario";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Definition from "./components/Definition";
+import Header from "./components/Header";
+import TermBox from "./components/TermBox";
+import { Helmet } from "react-helmet";
+import "./styles/Index.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router basename="/glosario">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Glosario de Marketing Digital</title>
+      </Helmet>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Header />
+            <TermBox />
+          </Route>
+          <Route path="/que-es/:urlName">
+            <Header />
+            <Definition />
+            <TermBox />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
