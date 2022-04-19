@@ -13,6 +13,7 @@ function App() {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Glosario de Marketing Digital</title>
+        <meta name="description" content=" ¡Deja de buscar! Todas las palabras y expresiones sobre marketing digital, estrategias para redes sociales y omnicanalidad están aquí." />
       </Helmet>
       <div className="App">
         <Switch>

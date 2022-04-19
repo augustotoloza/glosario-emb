@@ -13,12 +13,15 @@ function Definition() {
   });
   let query = useParams();
   const word = dataGlosario.find((word) => word.urlName == query.urlName);
+  const metadescription = word.content.replace(/(<([^>]+)>)/gi, "");
+
   if (word) {
     return (
       <div>
         <Helmet>
           <meta charSet="utf-8" />
           <title>{word.term} - Glosario de Marketing Digital</title>
+          <meta name="description" content={metadescription} />
         </Helmet>
         <div className="definitionBody">
           <h2>{word.term}</h2>
